@@ -8,14 +8,14 @@ int search(int numbers[], int low, int high, int value)
 		}
 	int half=(high+low)/2;
 	if(value==numbers[half])
-		return half;
+		return half; //value found
 	else if(value>numbers[half])
 		{
-			return search(numbers, half+1,high,value);
+			return search(numbers, half+1,high,value); //if value is greater than halfway point
 		}
 	else if(value<numbers[half])
 		{
-			return search(numbers,low,half-1,value);
+			return search(numbers,low,half-1,value); //if value is less than halfway point
 		}
 	return -1;
 }
