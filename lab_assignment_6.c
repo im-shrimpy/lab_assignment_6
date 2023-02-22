@@ -2,16 +2,20 @@
 
 int search(int numbers[], int low, int high, int value) 
 {
-	int half=high/low;
+	if(low>high)
+		{
+			return -1; //value not found
+		}
+	int half=(high+low)/2;
 	if(value==numbers[half])
 		return half;
 	else if(value>numbers[half])
 		{
-			search(numbers, half,high,value);
+			return search(numbers, half+1,high,value);
 		}
 	else if(value<numbers[half])
 		{
-			search(numbers,low,half,value);
+			return search(numbers,low,half-1,value);
 		}
 	return -1;
 }
